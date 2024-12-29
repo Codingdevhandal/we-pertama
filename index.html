@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Shof - Menu Kopi Kami</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <header class="bg-[#6f4f37] py-6">
+      <div
+        class="max-w-screen-xl mx-auto px-4 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <img
+            src="assets/images/coffe shopp.jpeg"
+            alt="Logo Coffee Shof"
+            class="h-12"
+          />
+          <span class="ml-3 text-3xl text-white font-bold">Coffee Shof</span>
+        </div>
+        <nav>
+          <ul class="flex space-x-6">
+            <li>
+              <a href="#home" class="text-white hover:text-amber-400"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a href="#menu" class="text-white hover:text-amber-400">Menu</a>
+            </li>
+            <li>
+              <a href="#about" class="text-white hover:text-amber-400"
+                >Tentang Kami</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="text-white hover:text-amber-400"
+                >Kontak</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="bg-cover bg-center relative h-screen"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1604014237800-1c9102c219da?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg0OXwwfDF8c2VhY3J8MXx8Y29mZmVlfGVufDB8fHx8&ixlib=rb-1.2.1&q=80&fm=jpg');
+      "
+    >
+      <div class="absolute inset-0 bg-black opacity-40"></div>
+      <div
+        class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6"
+      >
+        <h1 class="text-5xl font-extrabold mb-4">
+          Selamat Datang di Coffee Shof
+        </h1>
+        <p class="text-xl mb-8">Nikmati pengalaman kopi terbaik bersama kami</p>
+        <a
+          href="#menu"
+          class="bg-[#6f4f37] hover:bg-[#5e3f2d] px-6 py-3 text-lg font-medium rounded-full transition"
+          >Jelajahi Menu Kami</a
+        >
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gray-100">
+      <div class="max-w-screen-xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8">Menu Kopi Kami</h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+          id="menuItems"
+        >
+          <!-- Coffee Item Template -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="py-16 bg-gray-100">
+      <div class="max-w-screen-xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8">Keranjang Belanja</h2>
+        <div class="flex justify-end">
+          <div class="w-full max-w-lg space-y-4">
+            <dl class="space-y-0.5 text-sm text-gray-700" id="cartDetails">
+              <!-- Daftar item keranjang akan muncul di sini -->
+            </dl>
+
+            <div class="flex justify-between text-lg font-bold">
+              <span>Total Harga:</span>
+              <span id="totalPrice">Rp0</span>
+            </div>
+
+            <div class="flex justify-end mt-8">
+              <button
+                onclick="checkout()"
+                class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact" class="bg-[#6f4f37] text-white py-8">
+      <div class="max-w-screen-xl mx-auto text-center">
+        <p>&copy; 2024 Coffee Shof. Semua hak cipta dilindungi.</p>
+        <p class="mt-2">Ikuti kami di media sosial:</p>
+        <div class="flex justify-center gap-4 mt-4">
+          <a href="#" class="text-white hover:text-amber-400">Facebook</a>
+          <a href="#" class="text-white hover:text-amber-400">Instagram</a>
+          <a href="#" class="text-white hover:text-amber-400">Twitter</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Data menu
+      const menuItems = [
+        {
+          name: "Matcha Latte",
+          price: 30000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Espresso",
+          price: 20000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Cappuccino",
+          price: 25000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Cold Brew",
+          price: 35000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Latte",
+          price: 28000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Mocha",
+          price: 32000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Affogato",
+          price: 34000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Americano",
+          price: 27000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Macchiato",
+          price: 29000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Flat White",
+          price: 30000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Iced Latte",
+          price: 31000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Iced Coffee",
+          price: 28000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Caramel Macchiato",
+          price: 33000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Hot Chocolate",
+          price: 25000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Turmeric Latte",
+          price: 32000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Nitro Cold Brew",
+          price: 36000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Irish Coffee",
+          price: 35000,
+          img: "https://via.placeholder.com/300x200",
+        },
+        {
+          name: "Honey Coffee",
+          price: 30000,
+          img: "https://via.placeholder.com/300x200",
+        },
+      ];
+
+      // Menambahkan item menu ke halaman
+      function addItemToMenu(item) {
+        return `
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+            <img src="${item.img}" alt="${
+          item.name
+        }" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-2">${item.name}</h3>
+            <p class="text-gray-600 mb-4">Nikmati sensasi kopi yang lezat.</p>
+            <span class="font-bold text-xl text-[#6f4f37]">Rp${item.price.toLocaleString()}</span>
+            <button class="mt-4 w-full py-2 bg-[#6f4f37] text-white rounded-full hover:bg-[#5e3f2d] transition" onclick="addToCart('${
+              item.name
+            }', ${item.price})">Tambah ke Keranjang</button>
+          </div>
+        `;
+      }
+
+      // Menambahkan item ke menu
+      document.getElementById("menuItems").innerHTML = menuItems
+        .map(addItemToMenu)
+        .join("");
+
+      // Keranjang belanja
+      let cartItems = [];
+
+      // Menambah item ke keranjang
+      function addToCart(name, price) {
+        const existingItem = cartItems.find((item) => item.name === name);
+        if (existingItem) {
+          existingItem.quantity++;
+        } else {
+          cartItems.push({ name, price, quantity: 1 });
+        }
+        updateCart();
+      }
+
+      // Memperbarui tampilan keranjang
+      function updateCart() {
+        let cartDetails = document.getElementById("cartDetails");
+        let totalPrice = document.getElementById("totalPrice");
+        cartDetails.innerHTML = "";
+        let total = 0;
+
+        cartItems.forEach((item) => {
+          cartDetails.innerHTML += `
+            <div class="flex justify-between">
+              <span>${item.name} x${item.quantity}</span>
+              <span>Rp${(item.price * item.quantity).toLocaleString()}</span>
+            </div>
+          `;
+          total += item.price * item.quantity;
+        });
+
+        totalPrice.innerHTML = `Rp${total.toLocaleString()}`;
+      }
+
+      // Fungsi Checkout dan kirim ke WhatsApp
+      function checkout() {
+        if (cartItems.length === 0) {
+          alert("Keranjang Anda kosong! Silakan pilih beberapa item.");
+          return;
+        }
+
+        let message = "Halo, saya ingin memesan:\n\n";
+
+        cartItems.forEach((item) => {
+          message += `${item.name} x${item.quantity} - Rp${(
+            item.price * item.quantity
+          ).toLocaleString()}\n`;
+        });
+
+        message += `\nTotal Harga: Rp${cartItems
+          .reduce((total, item) => total + item.price * item.quantity, 0)
+          .toLocaleString()}`;
+
+        const phoneNumber = "6283128673462"; // Ganti dengan nomor WhatsApp Anda
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+          message
+        )}`;
+
+        // Mengarahkan ke WhatsApp
+        window.open(whatsappURL, "_blank");
+      }
+    </script>
+  </body>
+</html>
